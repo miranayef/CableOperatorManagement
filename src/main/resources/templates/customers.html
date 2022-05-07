@@ -1,0 +1,45 @@
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"><head>
+    <meta charset="utf-8">
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--    <meta name="description" content="">-->
+<!--    <meta name="author" content="">-->
+    <title>Customers</title>
+<!--    <form class="form-signin" method="get" action="/logout">-->
+<!--        <div style = "position:absolute; left:10px; top:10px; color:#F610DA">-->
+<!--            <button class="btn btn-primary btn-block" type="submit">Logout</button>-->
+<!--        </div>-->
+<!--    </form>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+<form action="#" th:action="@{/}" th:object="${customers}" method="get">
+        <div>
+            <h2>Customers</h2>
+            <hr/>
+            <table border="1" class="table table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr th:each="customer: ${listCustomers}">
+                            <td th:text="${customer.firstName}"></td>
+                            <td th:text="${customer.lastName}"></td>
+                            <td th:text="${customer.gender}"></td>
+                            <td th:text="${customer.email}"></td>
+                            <td th:text="${customer.phone}"></td>
+                            <td th:text="${customer.address}"></td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+</form>
+</body>
+</html>
