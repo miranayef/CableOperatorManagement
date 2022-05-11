@@ -40,7 +40,7 @@ public class ProviderController {
     private ResponseEntity<String> addNewProvider(@RequestBody Providers providers)
     {
         providerService.saveOrUpdate(providers);
-        return ResponseEntity.ok("Added contract successfully");
+        return ResponseEntity.ok("Added provider successfully");
     }
 
     //linking many to many rlt with TVChannel

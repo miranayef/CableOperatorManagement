@@ -54,7 +54,7 @@ public class TVChannelService {
     @Transactional
     public void updateTVchannel(int id, String name, BigDecimal price, Category category, List<Providers> providers, List<Packets> packets){
         TVchannels tVchannels  = tvChannelRepository.findById(id).orElseThrow(() -> new NotFoundException(
-                "tVchannels with id " + id + " doesn't exist"));
+                "tvchannels with id " + id + " doesn't exist"));
         if (name != null && name.length() > 0 && !Objects.equals(tVchannels.getName(), name)) {
             tVchannels.setName(name);
         }

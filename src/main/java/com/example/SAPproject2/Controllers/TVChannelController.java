@@ -42,7 +42,7 @@ public class TVChannelController {
     private ResponseEntity<String> addNewTVchannel(@RequestBody TVchannels tVchannels)
     {
         tvchannelService.saveOrUpdate(tVchannels);
-        return ResponseEntity.ok("Added contract successfully");
+        return ResponseEntity.ok("Added TV channel successfully");
     }
 
     @PostMapping(path = "/{id}/category/{category_id}")

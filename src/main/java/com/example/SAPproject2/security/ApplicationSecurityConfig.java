@@ -36,15 +36,6 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic(); //using httpBasic to work with postman
 //                .formLogin()
-//               .loginPage("/login").permitAll()
-//                .and()
-//                .rememberMe()
-//                .and()
-//                .logout()
-//                  .logoutUrl("/logout")
-//                .clearAuthentication(true)
-//                .invalidateHttpSession(true)
-//                .logoutSuccessUrl("/login");
     }
 
     @Override

@@ -41,7 +41,7 @@ public class ReportController {
     private ResponseEntity<String> addNewReport(@RequestBody Reports reports)
     {
         reportService.saveOrUpdate(reports);
-        return ResponseEntity.ok("Added contract successfully");
+        return ResponseEntity.ok("Added report successfully");
     }
 
     @PutMapping(path = "{id}")

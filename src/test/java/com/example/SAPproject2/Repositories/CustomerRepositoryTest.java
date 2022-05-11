@@ -23,8 +23,7 @@ class CustomerRepositoryTest {
 
     @Test
     void CheckIfEmailExists() {
-        String email = "i_ivanov@gmail.com";
-        Customers customers = new Customers(
+        String email = "i_ivanov@gmail.com";   Customers customers = new Customers(
                 "Iliyan",
                 "Ivanov",
                 Gender.Male,
@@ -34,6 +33,7 @@ class CustomerRepositoryTest {
                 null,
                 null
         );
+
         underTest.save(customers);
         boolean expected =  underTest.selectExistsEmail(email);
         assertThat(expected).isTrue();

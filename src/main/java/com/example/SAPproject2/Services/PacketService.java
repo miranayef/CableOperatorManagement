@@ -75,8 +75,10 @@ public class PacketService {
         if (contracts != null && !Objects.equals(packets.getContracts(), contracts)) {
             packets.setContracts(contracts);
         }
+        packetRepository.save(packets);
     }
 
+    @Transactional
     public void assignCategory(int id, int category_id) {
         Packets packets  = packetRepository.findById(id).orElseThrow(() -> new NotFoundException(
                 "packet with id " + id + " doesn't exist"));
@@ -87,13 +89,15 @@ public class PacketService {
         packetRepository.save(packets);
     }
 
+    @Transactional
     public void assignTVchannels(int id, int channel_id) {
         Packets packets  = packetRepository.findById(id).orElseThrow(() -> new NotFoundException(
                 "packet with id " + id + " doesn't exist"));
         TVchannels tVchannels = tvChannelRepository.findById(channel_id).orElseThrow(() -> new NotFoundException(
                 "TV channel with id " + channel_id + " doesn't exist"));
         packets.tVchannels.add(tVchannels);
-        if(packets.getPacketPrice() != null && !"".equals(packets.getPacketPrice())  )
+
+        if(packets.getPacketPrice() != null)
         {
             BigDecimal sum = packets.getPacketPrice().add(tVchannels.price);
             packets.setPacketPrice(sum);

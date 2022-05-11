@@ -14,6 +14,7 @@ import java.util.List;
 @Table(name = "Customers")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Customers {
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -22,7 +23,7 @@ public class Customers {
         @Size(min = 2, message = "Name should be at least 2 characters long")
         @NotBlank(message = "first name can't be blank")
         private String firstName;
-        @Column(nullable = false, length = 255)
+        @Column(nullable = false)
         @Size(min = 2, message = "Name should be at least 2 characters long")
         @NotBlank(message = "last name can't be blank")
         private String lastName;

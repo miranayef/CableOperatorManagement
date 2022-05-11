@@ -3,9 +3,11 @@ package com.example.SAPproject2.Repositories;
 import com.example.SAPproject2.Entities.Customers;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.util.List;
 
 @Repository
 public interface CustomerRepository extends CrudRepository<Customers, Integer> {

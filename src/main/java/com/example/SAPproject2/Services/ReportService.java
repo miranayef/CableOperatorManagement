@@ -67,7 +67,7 @@ public class ReportService {
         if (customers != null && !Objects.equals(reports.getCustomers(), customers)) {
             reports.setCustomers(customers);
         }
-
+        reportRepository.save(reports);
     }
 
 //    public void AssignCustomer(int id, int customer_id) {

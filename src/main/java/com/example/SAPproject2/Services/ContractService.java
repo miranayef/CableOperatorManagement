@@ -70,7 +70,7 @@ public class ContractService {
         if (packets != null && !Objects.equals(contract.getPackets(), packets)) {
             contract.setPackets(packets);
         }
-
+    contractRepository.save(contract);
     }
 
     public void AssignPacketToContract(int id, int packet_id) {

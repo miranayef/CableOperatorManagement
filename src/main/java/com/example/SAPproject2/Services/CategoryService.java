@@ -65,6 +65,6 @@ public class CategoryService {
         if (packets != null && !Objects.equals(category.getPackets(), packets)) {
             category.setPackets(packets);
         }
-
+        categoryRepository.save(category);
     }
 }

@@ -1,15 +1,10 @@
 package com.example.SAPproject2.Controllers;
 
-import com.example.SAPproject2.Entities.Contract;
 import com.example.SAPproject2.Entities.Customers;
-import com.example.SAPproject2.Entities.Enums.Gender;
-import com.example.SAPproject2.Entities.Reports;
 import com.example.SAPproject2.Repositories.ReportRepository;
 import com.example.SAPproject2.Services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
@@ -41,7 +36,7 @@ public class CustomerController {
 
     //creating delete mapping that deletes a specified book
     @DeleteMapping(path = "{id}")
-    private void deleteBook(@PathVariable("id") int id)
+    private void deleteCustomer(@PathVariable("id") int id)
     {
         customerService.delete(id);
     }
@@ -63,15 +58,13 @@ public class CustomerController {
     }
 
     @PutMapping(path = "{id}")
-    public void updateCustomer(@PathVariable("id") int id,
-                               @RequestParam(required = false) String firstName,
-                               @RequestParam(required = false) String lastName,
-                               @RequestParam(required = false) Gender gender,
-                               @RequestParam(required = false) String email,
-                               @RequestParam(required = false) String phone,
-                               @RequestParam(required = false) String address,
-                               @RequestParam(required = false) Reports reports,
-                               @RequestParam(required = false) List<Contract> contracts){
-            customerService.updateCustomer(id, firstName, lastName,gender,email,phone,address,reports,contracts);
+    public void updateCustomer(@PathVariable("id") int id, @Valid @RequestBody Customers customer){
+            customerService.updateCustomer(id, customer);
     }
+
+//    @GetMapping(path = "/{firstName}/{lastName}")
+//    public List<Customers> selectCustomerWithName(@PathVariable("firstName") String firstName,
+//                                           @PathVariable("lastName") String lastName){
+//       return customerService.selectCustomerWithName(firstName, lastName);
+//    }
 }

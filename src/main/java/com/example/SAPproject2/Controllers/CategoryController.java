@@ -23,7 +23,7 @@ public class CategoryController {
     @GetMapping
     public List<Category> getAllCategories()
     {
-        return (List<Category>) categoryService.getAllCategories();
+        return categoryService.getAllCategories();
     }
 
     @GetMapping(path = "{id}")
@@ -41,7 +41,7 @@ public class CategoryController {
     private ResponseEntity<String> addNewCategory(@RequestBody Category category)
     {
         categoryService.saveOrUpdate(category);
-        return ResponseEntity.ok("Added contract successfully");
+        return ResponseEntity.ok("Added category successfully");
 
     }
 

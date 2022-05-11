@@ -41,7 +41,7 @@ public class PacketController {
     private ResponseEntity<String> addNewPacket(@RequestBody Packets packets)
     {
         packetService.saveOrUpdate(packets);
-        return ResponseEntity.ok("Added contract successfully");
+        return ResponseEntity.ok("Added packet successfully");
     }
 
     //adding keys for many to one rlt with category

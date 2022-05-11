@@ -65,12 +65,12 @@ public class ProviderService {
         if (tVchannels != null && !Objects.equals(providers.getTVchannels(), tVchannels)) {
             providers.setTVchannels(tVchannels);
         }
-
+        providerRepository.save(providers);
     }
 
     public void assignTVchannelToProvider(int id, int channel_id) {
         Providers providers  = providerRepository.findById(id).orElseThrow(() -> new NotFoundException(
-                "provider with id " + id + " doesn't exist"));;
+                "provider with id " + id + " doesn't exist"));
         TVchannels tVchannels = tvChannelRepository.findById(channel_id).orElseThrow(() -> new NotFoundException(
                 "TV channel with id " + channel_id + " doesn't exist"));
         providers.tVchannels.add(tVchannels);

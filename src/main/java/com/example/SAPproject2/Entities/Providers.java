@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -20,8 +18,6 @@ public class Providers {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false)
-    @NotBlank
-    @Size(min = 2, message = "name mut be at least 2 characters long")
     private String name;
 
     @JsonIgnore
